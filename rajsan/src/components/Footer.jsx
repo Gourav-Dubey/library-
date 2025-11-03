@@ -91,7 +91,7 @@ const Footer = () => {
               
               <div className="flex items-center gap-3 pt-2">
                 <Globe className="w-5 h-5 text-green-400 flex-0" />
-                <p className="text-gray-300">Website by Yashraj Shukla</p>
+                <p className="text-gray-300">Website by Gourav Dubey</p>
               </div>
             </div>
           </motion.div>

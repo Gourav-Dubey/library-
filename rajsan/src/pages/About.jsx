@@ -8,9 +8,9 @@ const AboutSection = () => {
   ];
 
   const stats = [
-    { number: "50K+", label: "Books Collection" },
-    { number: "5K+", label: "Happy Members" },
-    { number: "8+", label: "Years Experience" },
+    // { number: "50K+", label: "Books Collection" },
+    { number: "200+", label: "Happy Members" },
+    // { number: "8+", label: "Years Experience" },
     { number: "24/7", label: "Service Available" }
   ];
 

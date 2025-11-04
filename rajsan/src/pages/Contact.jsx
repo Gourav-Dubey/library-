@@ -10,14 +10,40 @@ const ContactSection = () => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    setIsSubmitting(true);
-    setTimeout(() => {
-      setIsSubmitting(false);
+  // const handleSubmit = (e) => {
+  //   e.preventDefault();
+  //   setIsSubmitting(true);
+  //   setTimeout(() => {
+  //     setIsSubmitting(false);
+  //     setFormData({ name: "", email: "", phone: "", message: "" });
+  //   }, 2000);
+  // };
+   const handleSubmit = async (e) => {
+  e.preventDefault();
+  setIsSubmitting(true);
+
+  try {
+    const res = await fetch("https://formspree.io/f/manlglbk", { // <-- YAHI tumhara endpoint
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify(formData),
+    });
+
+    if (res.ok) {
+      alert("Message sent successfully ✅");
       setFormData({ name: "", email: "", phone: "", message: "" });
-    }, 2000);
-  };
+    } else {
+      alert("Error sending message ❌");
+    }
+  } catch (error) {
+    alert("Something went wrong ❌");
+  }
+
+  setIsSubmitting(false);
+};
+
 
   const contactInfo = [
     { 
@@ -96,9 +122,9 @@ const ContactSection = () => {
           <div className="grid grid-cols-2 gap-4 mt-6">
             {[
               { number: "24/7", label: "Access" },
-              { number: "50K+", label: "Books" },
-              { number: "5K+", label: "Members" },
-              { number: "8+", label: "Years" }
+              // { number: "50K+", label: "Books" },
+              { number: "200+", label: "Members" },
+              // { number: "8+", label: "Years" }
             ].map((stat, i) => (
               <div key={i} className="text-center p-3 bg-gray-800/30 rounded-lg border border-gray-700">
                 <div className="text-lg md:text-xl font-bold text-blue-400 mb-1">{stat.number}</div>

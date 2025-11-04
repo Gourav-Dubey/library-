@@ -1,7 +1,7 @@
 import { useRef, useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { Button } from "../components/ui/button";
-import { ChevronLeft, ChevronRight, BookOpen, Users, Clock, Sparkles } from "lucide-react";
+import { ChevronLeft, ChevronRight, BookOpen, Users, Clock, Sparkles,MapPin } from "lucide-react";
 import { Link } from "react-router-dom";
 
 const photos = [
@@ -202,6 +202,52 @@ function Home() {
           </div>
         </div>
       </section>
+
+
+           {/* Map Section */}
+<motion.div 
+  initial={{ opacity: 0, y: 20 }}
+  animate={{ opacity: 1, y: 0 }}
+  transition={{ delay: 0.3 }}
+  className="max-w-4xl mx-auto mb-16"
+>
+  <div className="text-center mb-6">
+    <h2 className="text-2xl md:text-3xl font-bold mb-2">
+      Visit Our <span className="text-blue-500">Library</span>
+    </h2>
+    <p className="text-gray-300 text-sm md:text-base">Come see us in person!</p>
+  </div>
+
+  <div className="bg-gray-800/50 rounded-2xl p-4 md:p-6 border border-gray-700">
+    {/* EMBED MAP */}
+    <div className="w-full h-[350px] md:h-[450px] overflow-hidden rounded-xl border border-gray-600">
+      <iframe
+        title="Rajsan Library Location"
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14844.96402791294!2d77.931237!3d23.852990!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x397cbb616b3d2e6d%3A0x6abdb0f3e98b8d6e!2sRajSan%20Library%2C%20Ganj%20Basoda!5e0!3m2!1sen!2sin!4v1709630400000!5m2!1sen!2sin"
+        allowFullScreen=""
+        loading="lazy"
+        referrerPolicy="no-referrer-when-downgrade"
+        className="w-full h-full"
+      ></iframe>
+    </div>
+
+    <div className="text-center mt-6">
+      <h3 className="text-white text-xl font-bold">RajSan Library</h3>
+      <p className="text-gray-300 text-sm mb-4">Behlot Bypass Road, Ganj Basoda</p>
+
+      <a
+        href="https://maps.app.goo.gl/CSunEuXh7JVfJFp47"
+        
+        className="inline-flex items-center gap-2 bg-blue-500 hover:bg-blue-600 text-white px-6 py-3 rounded-lg font-medium transition-all"
+      >
+        <MapPin className="w-4 h-4" />
+        Open in Maps
+      </a>
+    </div>
+  </div>
+</motion.div>
+
+
 
       {/* Stats Section */}
       <section className="relative z-10 max-w-6xl mx-auto px-4 py-16">
